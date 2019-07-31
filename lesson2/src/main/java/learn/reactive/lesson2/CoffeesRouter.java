@@ -16,7 +16,7 @@ public class CoffeesRouter {
 	@Bean
 	public RouterFunction<ServerResponse> router(CoffeesHandler handler) {
 		return RouterFunctions
-				.route(GET("/coffees/flux").and(accept(MediaType.APPLICATION_JSON)), handler::fluxCoffees)
-				.andRoute(GET("/coffees/mono").and(accept(MediaType.APPLICATION_JSON)), handler::monoCoffees);
+				.route(GET("/coffees/flux").and(accept(MediaType.TEXT_EVENT_STREAM)), handler::fluxCoffees)
+				.andRoute(GET("/coffees/mono").and(accept(MediaType.TEXT_EVENT_STREAM)), handler::monoCoffees);
 	}
 }

@@ -1,5 +1,7 @@
 package learn.reactive.lesson2;
 
+import java.time.Duration;
+
 import com.sun.security.ntlm.Server;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -19,6 +21,7 @@ public class CoffeesHandler {
 				.body(
 						Flux
 								.just("Dark Roast", "Medium Roast", "Double Shot")
+								.delayElements(Duration.ofSeconds(2))
 								.log()
 						, String.class
 				);
